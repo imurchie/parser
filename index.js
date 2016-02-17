@@ -7,10 +7,15 @@ var parser = new ArgumentParser({
     description: 'Somesuch and whatnot.'
   });
 
+var testing = function (str) {
+  console.log("'" + str + "'");
+  return JSON.parse(str);
+};
+
 parser.addArgument(['--de'], {
     dest: 'defaultCapabilities',
     defaultValue: {},
-    type: JSON.parse,
+    type: testing,
     required: false,
     example: '{"app": "myapp.app", "deviceName": "iPhone Simulator"}',
     help: 'Set the default desired capabilities, which will be set on each ' +
